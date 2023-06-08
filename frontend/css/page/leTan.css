@@ -1,0 +1,134 @@
+.main--body{
+    padding: 0;
+    margin: 0;
+}
+.sidebar{
+    background-color: #fff;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px;
+    padding: 0;
+}
+.menu--items{
+    padding: 12px 0;
+    min-height: 400px;
+}
+.menu--item{
+    padding: 8px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+.menu--item__active,
+.menu--item:hover{
+    background-color: #da6717;
+    color: #fff;
+}
+.menu--item:active{
+    background-color: #da6817b0;
+    color: #000;
+}
+.content{
+    background-color: #f2f2f2;
+}
+.content--item{
+    /* background-color: #fff; */
+    margin: 24px;
+    border-radius: 8px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.room--items{
+    display: grid;
+    grid-template-columns: 140px 140px 140px 140px 140px 140px 140px 140px;
+    gap: 8px;
+    padding: 8px;
+}
+.room--item{
+    position: relative;
+    padding: 8px 0;
+    /* border: 1px solid #000; */
+    border-radius: 8px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.room--name{
+    text-align: center;
+    font-weight: 700;
+}
+.room--type--name{
+    font-size: 13px;
+    text-align: center;
+}
+.room--rate{
+    color: red;
+    text-align: center;
+}
+.room--status{
+    position: absolute;
+    top: 0px;
+    right: 8px;
+}
+.room--btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.t__green{
+    color: green;
+}
+.t__red{
+    color: red;
+}
+.t__gray{
+    color: gray;
+}
+
+.footer{
+    margin-top: 0;
+}
+.content--header {
+    padding: 24px;
+    display: flex;
+    justify-content: space-between;
+}
+.content--header button{
+    max-height: 36px;
+}
+
+.content--body {
+    max-height: 500px;
+    overflow: auto;
+    padding: 24px 48px;
+    background-color: #fff;
+    border-radius: 8px;
+    margin: 0;
+}
+.booking--addBooking{
+    padding: 12px;
+}
+.booking--infoUser{
+    padding: 24px;
+    border-right: 2px solid #fff;
+}
+.booking--table{
+    max-height: 500px;
+    background-color: #fff;
+    width: 100%;
+    overflow: auto;
+    margin-left: 24px;
+    margin-bottom: 24px;
+    border-radius: 8px;
+}
+.useService--infoUser{
+    padding: 24px;
+}
+.useService--table,
+.useService--tableBooking{
+    max-height: 300px;
+    overflow: auto;
+}
+.useService--infoUseService{
+    border-top: 4px solid #fff;
+    max-height: 300px;
+    overflow: auto;
+}
+.nice-select{
+    display: none;
+}

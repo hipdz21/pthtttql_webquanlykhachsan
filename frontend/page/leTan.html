@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Felicity</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- fevicon -->
+    <link rel="shortcut icon" href="../images/Felicity.svg" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+    <!-- main css -->
+    <link rel="stylesheet" href="../css/page/main.css">
+    <!-- le tan css -->
+    <link rel="stylesheet" href="../css/page/leTan.css">
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="../images/loading.gif" alt="#" /></div>
+    </div>
+    <!-- end loader -->
+    <!-- header -->
+    <header id="main--header"></header>
+    <!-- body -->
+    <div class="alert alert-danger alert--error" role="alert" id="alert-error">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <nav id="text-alert-error"></nav>
+    </div>
+    <div class="alert alert-success alert--success" role="alert" id="alert-success">
+        <i class="fa-duotone fa-check"></i>
+        <nav id="text-alert-success"></nav>
+    </div>
+    <section>
+        <div class="row main--body">
+            <div class="col-md-2 sidebar">
+                <div class="menu--items">
+                    <div class="menu--item menu--item__active" onclick="nextPage(this,'content--home')">Trang chủ
+                    </div>
+                    <div class="menu--item" onclick="nextPage(this,'content--booking')">Quản lý thuê phòng</div>
+                    <div class="menu--item" onclick="nextPage(this,'content--useService')">Quản lý sử dụng dịch vụ</div>
+                    <div class="menu--item" onclick="nextPage(this,'content--client')">Quản lý khách hàng</div>
+                    <div class="menu--item" onclick="nextPage(this,'content--contact')">Liên hệ</div>
+                </div>
+            </div>
+            <div class="col-md-10 content">
+                <div class="content--item row content--home"> <!--style="display: none;"-->
+                    <div class="room--items">
+                        <!-- <div class="room--item">
+                            <div class="room--name">P102</div>
+                            <div class="room--image"><img src="../images/home.png" alt=""></div>
+                            <div class="room--type--name">Phòng đặc biệt</div>
+                            <div class="room--rate">500.000đ</div>
+                            <div class="room--status t__green"><i class="fa-solid fa-circle"></i></div>
+                            <div class="col-md-12 room--btn">
+                                <button type="button" class="btn btn-warning">Chọn</button>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="content--item row content--client" style="display: none;">
+                    <div class="content--client--header row content--header col-md-12">
+                        <div class="col-md-5">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="fa-solid fa-magnifying-glass"></i></span>
+                                <input type="text" class="form-control" placeholder="Tìm theo CCCD hoặc tên khách hàng"
+                                    aria-label="search" aria-describedby="basic-addon1" id="input-search-client">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success w150px" onclick="openAddClient()">Thêm mới</button>
+                    </div>
+                    <div class="content--client--body row content--body col-md-12">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Khách hàng</th>
+                                    <th scope="col">Tài khoản</th>
+                                    <th scope="col">Ngày sinh</th>
+                                    <!-- <th scope="col">Địa chỉ</th> -->
+                                    <th scope="col">CCCD</th>
+                                    <th scope="col">Số điện thoại</th>
+                                    <th scope="col">Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data-client">
+                                <!-- <tr>
+                                    <th scope="row">1</th>
+                                    <td>Nguyễn Văn A</td>
+                                    <td>nguyenvana</td>
+                                    <td>01/01/2000</td>
+                                    <td>Nguyễn Văn Trỗi, Mộ Lao, Hà Đông, Hà Nội</td>
+                                    <td>012345671230</td>
+                                    <td>0321654987</td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning"
+                                            onclick="updateClient()">Sửa</button>
+                                        <button type="button" class="btn btn-danger"
+                                            onclick="deleteClient()">Xoá</button>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="content--item row content--booking" style="display: none;">
+                    <div class="row col-md-12">
+                        <div class="booking--infoUser booking--infoUser__N col-md-9" style="display: none;">
+                            <div class="row" style="display: flex; align-items: center; justify-content: center;">
+                                <div class="h5">Chưa chọn khách hàng</div>
+                            </div>
+                            <div class="row" style="display: flex; align-items: center; justify-content: center;">
+                                <button type="button" class="btn btn-primary"
+                                    onclick='nextPage(document.getElementsByClassName("menu--item").item(3), "content--client");'>Chọn
+                                    khách hàng</button>
+                            </div>
+                        </div>
+                        <div class="booking--infoUser booking--infoUser__Y col-md-9" style="display: none;">
+                            <div class="row">
+                                <div class="h6">Thông tin khách hàng</div>
+                            </div>
+                            <div class="row">
+                                <input type="hidden" name="" id="id-user">
+                                <div class="row col-md-12">
+                                    <div class="mb-3 col-md-5">
+                                        <label for="name" class="form-label">Họ và tên</label>
+                                        <input type="text" class="form-control" id="name" placeholder="Nguyen Van A">
+                                    </div>
+                                    <div class="col-md-5 mb-3">
+                                        <label for="dob" class="form-label">Ngày sinh</label>
+                                        <input type="date" class="form-control" id="dob">
+                                    </div>
+                                    <div class="col-md-2 mb-3 infoUser--info--gender">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="gender" id="gender1"
+                                                value="option1">
+                                            <label class="form-check-label" for="inlineRadio1">Nam</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="gender" id="gender2"
+                                                value="option2">
+                                            <label class="form-check-label" for="inlineRadio2">Nữ</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="mb-3 col-md-3">
+                                        <label for="phoneNumber" class="form-label">Số điện thoại</label>
+                                        <input type="text" class="form-control" id="phoneNumber"
+                                            placeholder="0987654...">
+                                    </div>
+                                    <div class="mb-3 col-md-3">
+                                        <label for="email" class="form-label">Email</label>
+                                        <input type="email" class="form-control" id="email"
+                                            placeholder="email@email.com">
+                                    </div>
+                                    <div class="mb-3 col-md-3">
+                                        <label for="cccd" class="form-label">Số CCCD</label>
+                                        <input type="text" class="form-control" id="cccd" placeholder="12 số cccd">
+                                    </div>
+                                    <div class="mb-3 col-md-3">
+                                        <label for="passport" class="form-label">Passport</label>
+                                        <input type="text" class="form-control" id="passport">
+                                    </div>
+                                </div>
+                                <div class="row col-md-12">
+                                    <div class="mb-3 col-md-12">
+                                        <label for="address" class="form-label">Địa chỉ</label>
+                                        <textarea class="form-control" id="address" rows="1"
+                                            placeholder="Địa chỉ nhà, Phường/Xã, Quận/Huyện, Tỉnh/Thành phố"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 booking--addBooking">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="timeCheckIn">Ngày đến</label>
+                                    <input type="date" class="form-control" id="timeCheckIn" required>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label for="timeCheckOut">Ngày đi</label>
+                                    <input type="date" class="form-control" id="timeCheckOut" required>
+                                </div>
+                            </div>
+                            <div class="row col-md-12" style="padding-right: 0;">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="numberPeople">Số người</label>
+                                        <input type="number" class="form-control" id="numberPeople" placeholder="2"
+                                            required>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" style="padding: 0;">
+                                    <label for="bookingNote" class="form-label">Ghi chú</label>
+                                    <textarea class="form-control" id="bookingNote" rows="1"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12" style="display: flex; align-items: center; justify-content: end;">
+                                <button type="button" class="btn btn-success" style="height: 37px;"
+                                    onclick="timPhong()">Tìm phòng</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="booking--table" style="display: none;">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Ngày đặt</th>
+                                        <th scope="col">Ngày nhận</th>
+                                        <th scope="col">Ngày trả</th>
+                                        <th scope="col">Phòng</th>
+                                        <th scope="col">Giá phòng</th>
+                                        <th scope="col">Đặt cọc</th>
+                                        <th scope="col">Trạng thái</th>
+                                        <th scope="col">Chức năng</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="data-booking">
+                                    <!-- <tr>
+                                        <th scope="row">1</th>
+                                        <td>24/05/2023</td>
+                                        <td>24/05/2023</td>
+                                        <td>24/05/2023</td>
+                                        <td>Phòng đặc biệt</td>
+                                        <td>12.000.000đ</td>
+                                        <td>12.000.000đ</td>
+                                        <td>Đã thanh toán</td>
+                                        <td>
+                                            <button type="button" class="btn btn-light"
+                                                onclick="huyPhong()">Huỷ</button>
+                                            <button type="button" class="btn btn-success" onclick="nhanPhong()">Nhận
+                                                phòng</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">1</th>
+                                        <td>24/05/2023</td>
+                                        <td>24/05/2023</td>
+                                        <td>24/05/2023</td>
+                                        <td>Phòng đặc biệt</td>
+                                        <td>12.000.000đ</td>
+                                        <td>12.000.000đ</td>
+                                        <td>Đã thanh toán</td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning" onclick="traPhong()">Trả
+                                                phòng</button>
+                                        </td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="booking--table--roomtype col-md-12" style="display: none;">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Loại phòng</th>
+                                        <th scope="col">Giá phòng</th>
+                                        <th scope="col">Số người lớn</th>
+                                        <th scope="col">Số trẻ em</th>
+                                        <th scope="col">Giường</th>
+                                        <th scope="col">Chức năng</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="dataRoomType">
+                                    <!-- <tr>
+                                        <th scope="row">1</th>
+                                        <td>Phòng double</td>
+                                        <td>500.000đ</td>
+                                        <td>2</td>
+                                        <td>2</td>
+                                        <td>2 Giường đôi</td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning" onclick="thuePhong()">Thuê phòng</button>
+                                        </td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="content--item row content--useService" style="display: none;">
+                    <div class="useService--infoUser useService--infoUser__N col-md-12">
+                        <div class="row" style="display: flex; align-items: center; justify-content: center;">
+                            <div class="h5">Chưa chọn khách hàng</div>
+                        </div>
+                        <div class="row" style="display: flex; align-items: center; justify-content: center;">
+                            <button type="button" class="btn btn-primary"
+                                onclick='nextPage(document.getElementsByClassName("menu--item").item(3), "content--client");'>Chọn
+                                khách hàng</button>
+                        </div>
+                    </div>
+                    <div class="useService--infoUser useService--infoUser__Y col-md-12">
+                        <div class="useService--tableBooking col-md-12">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Thông tin đặt phòng</th>
+                                        <th scope="col">Thông tin khách hàng</th>
+                                        <th scope="col">Trạng thái</th>
+                                        <th scope="col">Phòng</th>
+                                        <th scope="col">Chọn</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="data-booking-use-service">
+                                    <!-- <tr>
+                                        <td scope="row">#</td>
+                                        <td>ngày đặt: 22/02/2000<br>Ngày nhận: 20/20/2000 <br>Ngày trả: 22/02/2022</td>
+                                        <td>Họ tên: Nguyễn Văn A<br>Ngày sinh:22/02/2000<br>CCCD:123456123</td>
+                                        <td>Đã nhận</td>
+                                        <td>Phòng P012</td>
+                                        <td><input type="radio" name="pickBookingUseService" id="" value=""></td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="row col-md-12">
+                        <div class="useService--table col-md-9">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Dịch vụ</th>
+                                        <th scope="col">Giá dịch vụ</th>
+                                        <th scope="col">Chức năng</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="data-service">
+                                    <!-- <tr>
+                                        <th scope="row">1</th>
+                                        <td>Xe đưa đón sân bay</td>
+                                        <td>500.000đ</td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning" onclick="pickService()">Đặt dịch vụ</button>
+                                        </td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3 col-md-12">
+                                <label for="serviceQuantity" class="form-label">Số lượng</label>
+                                <input type="text" class="form-control" id="serviceQuantity" placeholder="1">
+                            </div>
+                            <div class="mb-3 col-md-12">
+                                <label for="noteUseService" class="form-label">Ghi chú</label>
+                                <textarea class="form-control" id="noteUseService" rows="3"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="useService--infoUseService col-md-12">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Ngày sử dụng</th>
+                                    <th scope="col">Dịch vụ</th>
+                                    <th scope="col">Giá dịch vụ</th>
+                                    <th scope="col">Số lượng</th>
+                                    <th scope="col">Tổng tiền</th>
+                                    <th scope="col">Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data-use-service-by-user">
+                                <!-- <tr>
+                                    <td scope="row">#</td>
+                                    <td>22/02/2000</td>
+                                    <td>Xe đưa đón sân bay</td>
+                                    <td>500.000đ</td>
+                                    <td>1</td>
+                                    <td>500.000đ</td>
+                                    <td>
+                                        <button type="button" class="btn btn-secondary">Huỷ</button>
+                                        <button type="button" class="btn btn-success">Thanh toán</button>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="content--item row content--contact" style="display: none;">
+                    <div class="contact--table">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Thời gian</th>
+                                    <th scope="col">Họ Tên</th>
+                                    <th scope="col">Email</th>
+                                    <th scope="col">Số điện thoại</th>
+                                    <th scope="col">Nội dung</th>
+                                    <th scope="col">Tiếp nhận</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data-contact">
+                                <!-- <tr>
+                                    <td scope="row">#</td>
+                                    <td>22/02/2022</td>
+                                    <td>Nguyễn Văn A</td>
+                                    <td>nva@gmail.com</td>
+                                    <td>0231452620</td>
+                                    <td>Muốn hỗ trợ</td>
+                                    <td>
+                                        <button type="button" class="btn btn-success" onclick="tiepNhanContact()">Tiếp nhận</button>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="popup" id="popup-Client" style="display: none;">
+        <div class="popup--board">
+            <form action="" id="form-add-client">
+                <div class="popup--header">Thông tin khách hàng</div>
+                <div class="popup--content">
+                    <input type="hidden" name="" id="idClient">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="nameClient" class="form-label">Họ tên khách hàng</label>
+                            <input type="text" class="form-control" id="nameClient" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="gender" class="form-label">Giới tính</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="genderClient"
+                                                id="genderClient1" checked value="Nam">
+                                            <label class="form-check-label" for="genderClient1">
+                                                Nam
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="genderClient"
+                                                id="genderClient2" value="Nữ">
+                                            <label class="form-check-label" for="genderClient2">
+                                                Nữ
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="mb-3">
+                                <label for="dobClient" class="form-label">Ngày sinh</label>
+                                <input type="date" class="form-control" id="dobClient" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="phoneNumberClient" class="form-label">Số điện thoại</label>
+                                <input type="text" class="form-control" id="phoneNumberClient" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="emailClient" class="form-label">Email</label>
+                                <input type="text" class="form-control" id="emailClient">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="cccdClient" class="form-label">CCCD</label>
+                                <input type="text" class="form-control" id="cccdClient">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="passportClient" class="form-label">Hộ chiếu</label>
+                                <input type="text" class="form-control" id="passportClient">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="addressClient" class="form-label">Địa chỉ</label>
+                            <textarea class="form-control" id="addressClient" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup--footer">
+                    <button type="button" class="btn btn-secondary" onclick="closePopup('popup-Client')">Huỷ</button>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="popup" id="popup-nhanPhong" style="display: none;">
+        <div class="popup--board">
+            <form action="" id="form-nhanPhong">
+                <div class="popup--header">Thông tin phòng</div>
+                <input type="hidden" name="" id="idBookingNhanPhong">
+                <div class="popup--content">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="roomTypeName" class="form-label">Loại phòng</label>
+                            <input type="text" class="form-control" id="roomTypeName" readonly>
+                        </div>
+                    </div>
+                    <div class="form-row col-md-12">
+                        <div class="form-group col-md-12">
+                            <label for="pickRoomNhanPhong">Phòng</label>
+                            <select class="form-control" id="pickRoomNhanPhong">
+                                <!-- <option value="1">Option 1</option>
+                                <option>Option 2</option>
+                                <option>Option 3</option> -->
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup--footer">
+                    <button type="button" class="btn btn-secondary" onclick="closePopup('popup-nhanPhong')">Huỷ</button>
+                    <button type="submit" class="btn btn-primary">Nhận phòng</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="popup" id="popup-traPhong" style="display: none;">
+        <div class="popup--board">
+            <form action="" id="form-traPhong">
+                <div class="popup--header">Thông tin trả phòng</div>
+                <input type="hidden" name="" id="idBookingTraPhong">
+                <div class="popup--content">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="inputTienPhat" class="form-label">Tiền phạt</label>
+                            <input type="text" class="form-control" id="inputTienPhat" onchange="updateTienPhat(this)">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="noteTraPhong" class="form-label">Ghi chú</label>
+                            <textarea class="form-control" id="noteTraPhong" rows="3"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-md-12 d-flex justify-content-end">
+                        <div class="h6 tienPhat"></div>
+                    </div>
+                </div>
+                <div class="popup--footer">
+                    <button type="button" class="btn btn-secondary" onclick="closePopup('popup-traPhong')">Huỷ</button>
+                    <button type="submit" class="btn btn-primary">Trả phòng</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="popup" id="popup-lichSuThue" style="display: none;">
+        <div class="popup--board">
+            <form action="" id="form-lichSuThue">
+                <div class="popup--header">Lịch sử thuê phòng</div>
+                <div class="popup--content">
+                    <table class="table table-striped table-hover">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Ngày nhận</th>
+                                <th scope="col">Ngày trả</th>
+                                <th scope="col">Khách hàng</th>
+                                <th scope="col">Chức năng</th>
+                            </tr>
+                        </thead>
+                        <tbody id="data-lichSuThue">
+                            <!-- <tr>
+                                <td scope="row">#</td>
+                                <td>22/02/2022</td>
+                                <td>22/02/2022</td>
+                                <td>Họ Tên: Nguyễn Văn An<br>Số điện thoại: 0975235425</td>
+                                <td>
+                                    <button type="button" class="btn btn-primary" onclick="pickClientUseService()">Sử dụng dịch vụ</button>
+                                </td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="popup--footer">
+                    <button type="button" class="btn btn-secondary" onclick="closePopup('popup-lichSuThue')">Đóng</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--  footer -->
+    <footer id="contact" class="main--footer"></footer>
+    <!-- end footer -->
+    <!-- Javascript files-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-3.0.0.min.js"></script>
+    <script src="../js/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../js/custom.js"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <!-- main js -->
+    <script src="/js/page/main.js"></script>
+    <!-- le tan js -->
+    <script src="/js/page/leTan.js"></script>
+</body>
+
+</html>

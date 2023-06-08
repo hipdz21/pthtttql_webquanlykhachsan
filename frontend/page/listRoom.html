@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Danh sách phòng - Felicity</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- fevicon -->
+    <link rel="shortcut icon" href="../images/Felicity.svg" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+    <!-- main css -->
+    <link rel="stylesheet" href="../css/page/main.css">
+    <!-- list room css -->
+    <link rel="stylesheet" href="../css/page/listRoom.css">
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="../images/loading.gif" alt="#" /></div>
+    </div>
+    <!-- end loader -->
+    <!-- header -->
+    <header id="main--header"></header>
+    <!-- body -->
+    <!-- form_lebal -->
+    <div class="alert alert-danger alert--error" role="alert" id="alert-error">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <nav id="text-alert-error"></nav>
+    </div>
+    <div class="alert alert-success alert--success" role="alert" id="alert-success">
+        <i class="fa-duotone fa-check"></i>
+        <nav id="text-alert-success"></nav>
+    </div>
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form_book q--form_book">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <label class="date">Ngày đến</label>
+                                <input class="book_n" type="date" id="timeCheckIn">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="date">Ngày đi</label>
+                                <input class="book_n" type="date" id="timeCheckOut">
+                            </div>
+                            <div class="col-md-3">
+                                <label class="date">Số người</label>
+                                <input class="book_n" placeholder="2" type="type" name="2" id="numberPeople">
+                            </div>
+                            <div class="col-md-3">
+                                <button class="book_btn" onclick="clickSearch()">Tìm phòng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- end form_lebal -->
+    <section>
+        <div class="container">
+            <div class="room--items">
+                <!-- <div class="room-item">
+                    <div class="room--item--title">Phòng Deluxe</div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="room--image">
+                                <img src="https://cdn2.vietnambooking.com/wp-content/uploads/hotel_pro/hotel_353355/ab47d8b24d903c37aabc89445a9ff105.jpg" alt="">
+                            </div>
+                            <div class="room--utilities">
+                                <div class="room--utilities--item"><i class="fa-regular fa-house"></i>Diện tích</div>
+                                <div class="room--utilities--item"><i class="fa-regular fa-bed-front"></i>Số giường</div>
+                                <div class="room--utilities--item"><i class="fa-regular fa-ban-smoking"></i>Không hút thuốc</div>
+                                <div class="room--utilities--item"><i class="fa-solid fa-wifi"></i>Wifi miễn phí</div>
+                                <div class="room--utilities--item"><i class="fa-light fa-door-open"></i>Ban công/Sân hiên</div>
+                                <div class="room--utilities--item"><i class="fa-solid fa-bath"></i>Bồn tắm/Vòi sen riêng</div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="row room--numberPeople">
+                                <div class="room--numberPeople--item"><i class="fa-solid fa-person"></i> x2 Người lớn</div>
+                                <div class="room--numberPeople--item"><i class="fa-solid fa-child"></i> x2 Trẻ em</div>
+                                <div class="room--numberPeople--item">2 bé dưới 5 tuổi được ở miễn phí</div>
+                            </div>
+                            <div class="row">
+                                <div class="col room--deals">
+                                    <div class="h5">Ưu đãi trong phòng</div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="room--deals--item"><i class="fa-solid fa-check"></i>Bữa sáng miễn phí</div>
+                                            <div class="room--deals--item"><i class="fa-solid fa-check"></i>Dọn phòng hàng ngày</div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="room--deals--item"><i class="fa-solid fa-check"></i>Miễn phí Internet</div>
+                                            <div class="room--deals--item"><i class="fa-solid fa-check"></i>Miễn phí nước suối trong phòng</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row room--item--footer">
+                                <div class="room--discount">Giảm 40% hôm nay
+                                    <div class="room--discount__triangle"></div>
+                                </div>
+                                <div class="col">
+                                    <div class="room--oldPrice">1.920.000đ</div>
+                                    <div class="room--price">1.920.000đ</div>
+                                    <div class="room--unit">/đêm</div>
+                                </div>
+                                <div class="col-md-3">
+                                    <button type="button" class="btn btn-primary btn-lg btn--orderRoom">Đặt ngay</button>
+                                    <button type="button" class="btn btn-light">Xem chi tiết</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+
+        </div>
+    </section>
+    <!--  footer -->
+    <footer id="contact" class="main--footer"></footer>
+    <!-- end footer -->
+    <!-- Javascript files-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-3.0.0.min.js"></script>
+    <script src="../js/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../js/custom.js"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <!-- main js -->
+    <script src="/js/page/main.js"></script>
+    <!-- list room js -->
+    <script src="/js/page/listRoom.js"></script>
+</body>
+
+</html>

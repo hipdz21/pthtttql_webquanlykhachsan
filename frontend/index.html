@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <!-- basic -->
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <!-- mobile metas -->
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+   <!-- site metas -->
+   <title>Felicity</title>
+   <meta name="keywords" content="">
+   <meta name="description" content="">
+   <meta name="author" content="">
+   <!-- bootstrap css -->
+   <link rel="stylesheet" href="../css/bootstrap.min.css">
+   <!-- style css -->
+   <link rel="stylesheet" href="css/style.css">
+   <!-- Responsive-->
+   <link rel="stylesheet" href="css/responsive.css">
+   <!-- fevicon -->
+   <link rel="shortcut icon" href="images/Felicity.svg" />
+   <!-- Scrollbar Custom CSS -->
+   <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+   <!-- Tweaks for older IEs-->
+   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+      media="screen">
+   <link rel="stylesheet" href="/css/page/index.css">
+</head>
+<!-- body -->
+
+<body class="main-layout">
+   <!-- loader  -->
+   <div class="loader_bg">
+      <div class="loader"><img src="images/loading.gif" alt="#" /></div>
+   </div>
+   <!-- end loader -->
+   <!-- header -->
+   <header>
+      <!-- header inner -->
+      <div class="header">
+         <div class="container">
+            <div class="row">
+               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col logo_section">
+                  <div class="full">
+                     <div class="center-desk">
+                        <div class="logo">
+                           <a href="index.html"><img src="images/logo.png" alt="#" /></a>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9">
+                  <nav class="navigation navbar navbar-expand-md navbar-dark ">
+                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample04"
+                        aria-controls="navbarsExample04" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                     </button>
+                     <div class="collapse navbar-collapse" id="navbarsExample04">
+                        <ul class="navbar-nav mr-auto nav-items">
+                           <li class="nav-item">
+                              <a class="nav-link" href="/page/about.html">Thông tin</a>
+                           </li>
+                           <li class="nav-item">
+                              <a class="nav-link" href="#contact">Liên hệ</a>
+                           </li>
+                        </ul>
+                        <div class="sign_btn"><a href="/page/login.html">Đăng nhập</a></div>
+                     </div>
+                  </nav>
+               </div>
+            </div>
+         </div>
+      </div>
+   </header>
+   <!-- end header inner -->
+   <!-- end header -->
+   <div class="alert alert-danger alert--error" role="alert" id="alert-error">
+      <i class="fa-solid fa-triangle-exclamation"></i>
+      <nav id="text-alert-error"></nav>
+   </div>
+   <div class="alert alert-success alert--success" role="alert" id="alert-success">
+      <i class="fa-duotone fa-check"></i>
+      <nav id="text-alert-success"></nav>
+   </div>
+   <!-- banner -->
+   <section class="banner_main">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="text-bg">
+                  <div class="padding_lert">
+                     <h1>Chào mừng đến với khách sạn</h1>
+                     <span>Felicity</span>
+                     <p>Là một khách sạn 5 sao tiêu chuẩn quốc tế, Felicity tọa lạc ở trung tâm thành phố Hà Nội, thuận
+                        tiện di chuyển đến các văn phòng chính phủ và các bộ, tòa nhà văn phòng, điểm đến du lịch văn
+                        hóa, điểm đến lịch sử nổi tiếng và các trung tâm mua sắm sang trọng.</p>
+                     <a href="#about">Xem thêm</a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!-- end banner -->
+   <!-- form_lebal -->
+   <section>
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="form_book">
+                  <div class="row">
+                     <div class="col-md-3">
+                        <label class="date">Ngày đến</label>
+                        <input class="book_n" type="date" id="timeCheckIn">
+                     </div>
+                     <div class="col-md-3">
+                        <label class="date">Ngày đi</label>
+                        <input class="book_n" type="date" id="timeCheckOut">
+                     </div>
+                     <div class="col-md-3">
+                        <label class="date">Số người</label>
+                        <input class="book_n" placeholder="2" type="type" name="2" id="numberPeople">
+                     </div>
+                     <div class="col-md-3">
+                        <button class="book_btn" onclick="clickSearch()">Đặt phòng ngay</button>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+   <!-- end form_lebal -->
+   <!-- choose  section -->
+   <div class="choose">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-6">
+               <div class="choose_box">
+                  <div class="titlepage">
+                     <h2><span class="text_norlam">Sự lựa chọn hoàn hảo</span> <br>Phòng nghỉ</h2>
+                  </div>
+                  <p>50 phòng nghỉ (gồm các loại phòng từ tiêu chuẩn đến cao cấp) được bố trí hài hòa bên tòa nhà
+                     Felicity sang trọng với tầm nhìn thơ mộng ra Hồ Giảng Võ. Khách hàng sẽ cảm nhận được sự sang
+                     trọng, cao cấp, tiện nghi và hiện đại bậc nhất nơi đây.</p>
+                  <a class="read_more" href="/page/listRoom.html">Xem thêm</a>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="row">
+                  <div class="col-md-12">
+                     <div class="img_box">
+                        <figure><img src="images/img1.jpg" alt="#" /></figure>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="img_box">
+                        <figure><img src="images/img2.jpg" alt="#" /></figure>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="img_box">
+                        <figure><img src="images/img3.jpg" alt="#" /></figure>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- end choose  section -->
+   <!-- our  section -->
+   <div class="our">
+      <div class="container">
+         <div class="row d_flex">
+            <div class="col-md-6">
+               <div class="img_box">
+                  <figure><img src="images/img4.jpg" alt="#" /></figure>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="our_box">
+                  <div class="titlepage">
+                     <h2><span class="text_norlam">Đa dạng </span> <br>Dịch vụ</h2>
+                  </div>
+                  <p>Cung cấp nhiều dịch vụ tiện ích đem lại trải nghiệm tuyệt vời, thú vị cho quý khách. Để đem lại sự
+                     hài lòng cho mỗi khách hàng, Felicity phục vụ xe đưa đón sân bay, tiệc Buffer với nhiều món Âu, Á
+                     đa dạng, Spa, cùng nhiều dịch vụ khác.</p>
+                  <a class="read_more" href="/page/listService.html">Xem thêm</a>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- end our  section -->
+   <!-- about -->
+   <div id="about" class="about">
+      <div class="container-fluid">
+         <div class="row d_flex">
+            <div class="col-md-6">
+               <div class="about_text">
+                  <div class="titlepage">
+                     <h2>Về Felicity</h2>
+                     <p>Felicity là một khách sạn 5 sao tiêu chuẩn quốc tế nằm tại trung tâm thành phố Hà Nội. Với vị
+                        trí đắc địa, khách sạn này rất thuận lợi cho việc di chuyển đến các văn phòng chính phủ và các
+                        tòa nhà văn phòng. Ngoài ra, Felicity cũng là điểm đến lý tưởng cho các du khách muốn khám phá
+                        văn hóa và lịch sử của thành phố với những điểm tham quan nổi tiếng trong khu vực. Nếu bạn muốn
+                        tìm kiếm những trải nghiệm mua sắm sang trọng, Felicity cũng nằm trong khu vực có nhiều trung
+                        tâm thương mại và cửa hàng cao cấp. Với tiện nghi hiện đại, dịch vụ chất lượng và vị trí đắc
+                        địa, Felicity chắc chắn sẽ là một lựa chọn hấp dẫn cho những du khách đang tìm kiếm một trải
+                        nghiệm nghỉ dưỡng đẳng cấp tại thủ đô Hà Nội.</p>
+                     <a class="read_more" href="/page/about.html">Xem thêm</a>
+                  </div>
+               </div>
+            </div>
+            <div class="col-md-6">
+               <div class="about_img">
+                  <figure><iframe width="100%" height="350"
+                        src="https://www.youtube.com/embed/frG7fz6umT8?controls=0&amp;start=11"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe></figure>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- end about -->
+   <!-- testimonial -->
+   <div class="testimonial">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <div class="titlepage">
+                  <h2>Cảm nhận của khách hàng</h2>
+               </div>
+            </div>
+         </div>
+         <div class="row">
+            <div class="col-md-12">
+               <div id="myCarousel" class="carousel slide testimonial_Carousel " data-ride="carousel">
+                  <ol class="carousel-indicators">
+                     <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                     <li data-target="#myCarousel" data-slide-to="1"></li>
+                     <li data-target="#myCarousel" data-slide-to="2"></li>
+                  </ol>
+                  <div class="carousel-inner">
+                     <div class="carousel-item active">
+                        <div class="container">
+                           <div class="carousel-caption ">
+                              <div class="row">
+                                 <div class="col-md-6 margin_boot">
+                                    <div class="test_box">
+                                       <h4>Mark jonson</h4>
+                                       <i><img src="images/te1.png" alt="#" /></i>
+                                       <p>Tôi rất hài lòng về kỳ nghỉ của mình tại khách sạn này. Từ phòng ngủ đến nhà
+                                          hàng và dịch vụ, mọi thứ đều tuyệt vời. Phòng ngủ rộng rãi và thoải mái, và
+                                          được trang bị đầy đủ tiện nghi. Nhân viên thân thiện và luôn sẵn sàng giúp đỡ,
+                                          đáp ứng mọi yêu cầu của tôi,</p>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                    <div class="test_box">
+                                       <h4>Mac Du</h4>
+                                       <i><img src="images/te1.png" alt="#" /></i>
+                                       <p>Nhà hàng của khách sạn có đầy đủ các món ăn ngon và đa dạng, và tôi thực sự
+                                          thích thú với bữa sáng buffet tuyệt vời của họ. Tôi cảm thấy mình được chăm
+                                          sóc tận tình và thực sự thư giãn trong kỳ nghỉ tại đây. Tôi rất khuyến khích
+                                          mọi người đến và trải nghiệm khách sạn này,</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="carousel-item">
+                        <div class="container">
+                           <div class="carousel-caption">
+                              <div class="row">
+                                 <div class="col-md-6 margin_boot">
+                                    <div class="test_box">
+                                       <h4>Hoàng Diệu Nhi</h4>
+                                       <i><img src="images/te1.png" alt="#" /></i>
+                                       <p>Khách sạn Felicity là một trong những khách sạn tuyệt vời mà tôi từng trải
+                                          nghiệm. Từ khi đặt phòng cho kỳ nghỉ của mình, tôi đã được trải qua một trải
+                                          nghiệm tuyệt vời với dịch vụ chu đáo và chuyên nghiệp của nhân viên khách sạn,
+                                       </p>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                    <div class="test_box">
+                                       <h4>Trịnh Khánh Toàn</h4>
+                                       <i><img src="images/te1.png" alt="#" /></i>
+                                       <p>Khi tôi đến khách sạn, tôi đã bị ấn tượng bởi kiến trúc đẹp mắt của khách sạn
+                                          và nội thất sang trọng, hiện đại. Phòng của tôi rộng rãi, thoáng mát và được
+                                          trang bị đầy đủ tiện nghi, đáp ứng đầy đủ nhu cầu của tôi trong suốt kỳ nghỉ,
+                                       </p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="carousel-item">
+                        <div class="container">
+                           <div class="carousel-caption">
+                              <div class="row">
+                                 <div class="col-md-6 margin_boot">
+                                    <div class="test_box">
+                                       <h4>Nguyễn Anh Thư</h4>
+                                       <i><img src="images/te1.png" alt="#" /></i>
+                                       <p>Điều tuyệt vời nhất của khách sạn Felicity là dịch vụ của nhân viên. Họ luôn
+                                          sẵn sàng giúp đỡ và tạo ra một không gian thoải mái, ấm cúng cho khách hàng.
+                                          Tất cả các yêu cầu của tôi đều được đáp ứng nhanh chóng và hiệu quả,</p>
+                                    </div>
+                                 </div>
+                                 <div class="col-md-6">
+                                    <div class="test_box">
+                                       <h4>Trần Linh Anh</h4>
+                                       <i><img src="images/te1.png" alt="#" /></i>
+                                       <p>Khách sạn Felicity có các tiện ích thú vị như bể bơi, nhà hàng, quầy bar
+                                          và phòng tập thể dục. Tôi đã tận hưởng được những giây phút thư giãn tuyệt vời
+                                          tại đây và không muốn rời khách sạn,</p>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+               </a>
+               <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+               </a>
+            </div>
+         </div>
+      </div>
+   </div>
+   </div>
+   <!-- end testimonial -->
+   <!--  footer -->
+   <footer id="contact">
+      <div class="footer">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="titlepage">
+                     <h2>Liên hệ</h2>
+                  </div>
+                  <div class="cont">
+                     <h3>Khách sạn Felicity</h3>
+                     <p>A: 100 Giảng Võ, Ba Đình, Hà Nội</p>
+                     <p>T: <a href="tel:02466668888" class="text-white">(+84) 24 6666 8888</a> | F: <a
+                           href="tel:02499998888" class="text-white">(+84) 24 9999 8888</a> </p>
+                     <p>E: <a href="mailto:reservation@felicity.com" class="text-white">reservation@felicity.com</a></p>
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <form id="form-contact" class="main_form">
+                     <div class="row">
+                        <div class="col-md-12 ">
+                           <input class="contactus" placeholder="Họ và tên của bạn" type="type" id="Full-Name">
+                        </div>
+                        <div class="col-md-12">
+                           <input class="contactus" placeholder="Email" type="type" id="Email">
+                        </div>
+                        <div class="col-md-12">
+                           <input class="contactus" placeholder="Số điện thoại" type="type" id="Phone-Number">
+                        </div>
+                        <div class="col-md-12">
+                           <textarea class="textarea" placeholder="Nội dung muốn gửi" type="type" Message="Name"
+                              id="MesContact"></textarea>
+                        </div>
+                        <div class="col-sm-12">
+                           <button type="submit" class="send_btn">Gửi</button>
+                        </div>
+                     </div>
+                  </form>
+               </div>
+            </div>
+         </div>
+         <div class="copyright">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-12">
+                     <p></p>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </footer>
+   <!-- end footer -->
+   <!-- Javascript files-->
+   <script src="js/jquery.min.js"></script>
+   <script src="js/popper.min.js"></script>
+   <script src="js/bootstrap.bundle.min.js"></script>
+   <script src="js/jquery-3.0.0.min.js"></script>
+   <script src="js/plugin.js"></script>
+   <!-- sidebar -->
+   <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+   <script src="js/custom.js"></script>
+   <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+   <!-- main js -->
+   <script src="/js/page/main.js"></script>
+   <!-- index js -->
+   <script src="/js/page/index.js"></script>
+</body>
+
+</html>

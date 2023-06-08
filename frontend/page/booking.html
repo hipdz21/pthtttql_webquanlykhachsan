@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Đặt phòng - Felicity</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- fevicon -->
+    <link rel="shortcut icon" href="../images/Felicity.svg" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+    <!-- main css -->
+    <link rel="stylesheet" href="../css/page/main.css">
+    <!-- booking css -->
+    <link rel="stylesheet" href="../css/page/booking.css">
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="../images/loading.gif" alt="#" /></div>
+    </div>
+    <!-- end loader -->
+    <!-- header -->
+    <header id="main--header"></header>
+    <!-- body -->
+    <div class="alert alert-danger alert--error" role="alert" id="alert-error">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <nav id="text-alert-error"></nav>
+    </div>
+    <div class="alert alert-success alert--success" role="alert" id="alert-success">
+        <i class="fa-duotone fa-check"></i><nav id="text-alert-success"></nav>
+    </div>
+    <section>
+        <div class="container content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="titlepage">
+                        <div class="h2">Đặt phòng</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="h3">Thông tin đặt phòng</div>
+                </div>
+                <div class="row col-md-12">
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="timeCheckIn">Ngày đến</label>
+                            <input type="date" class="form-control" id="timeCheckIn" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="timeCheckOut">Ngày đi</label>
+                            <input type="date" class="form-control" id="timeCheckOut" required>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="form-group">
+                            <label for="numberPeople">Số người</label>
+                            <input type="number" class="form-control" id="numberPeople" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-md-12">
+                    <div class="mb-3 col-md-12">
+                        <label for="bookingNote" class="form-label">Ghi chú</label>
+                        <textarea class="form-control" id="bookingNote" rows="3"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="h3">Thông tin khách hàng</div>
+                </div>
+                <input type="hidden" name="" id="id-user">
+                <div class="row col-md-12">
+                    <div class="mb-3 col-md-12">
+                        <label for="name" class="form-label">Họ và tên</label>
+                        <input type="text" class="form-control" id="name" placeholder="Nguyen Van A">
+                    </div>
+                </div>
+                <div class="row col-md-12">
+                    <div class="col-md-7 mb-3">
+                        <label for="dob" class="form-label">Ngày sinh</label>
+                        <input type="date" class="form-control" id="dob">
+                    </div>
+                    <div class="col-md-5 mb-3 infoUser--info--gender">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="gender1" value="option1">
+                            <label class="form-check-label" for="inlineRadio1">Nam</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="gender" id="gender2" value="option2">
+                            <label class="form-check-label" for="inlineRadio2">Nữ</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row col-md-12">
+                    <div class="mb-3 col-md-6">
+                        <label for="phoneNumber" class="form-label">Số điện thoại</label>
+                        <input type="text" class="form-control" id="phoneNumber" placeholder="0987654...">
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="email" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="email" placeholder="email@email.com">
+                    </div>
+                </div>
+                <div class="row col-md-12">
+                    <div class="mb-3 col-md-6">
+                        <label for="cccd" class="form-label">Số CCCD</label>
+                        <input type="text" class="form-control" id="cccd" placeholder="12 số cccd">
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label for="passport" class="form-label">Passport</label>
+                        <input type="text" class="form-control" id="passport">
+                    </div>
+                </div>
+                <div class="row col-md-12">
+                    <div class="mb-3 col-md-12">
+                        <label for="address" class="form-label">Địa chỉ</label>
+                        <textarea class="form-control" id="address" rows="3"
+                            placeholder="Địa chỉ nhà, Phường/Xã, Quận/Huyện, Tỉnh/Thành phố"></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="h3">Thông tin phòng</div>
+            </div>
+            <div class="infoRoom col-md-12">
+                <div class="row">
+                    <div class="col-md-2"><img src="https://hoanghaihotel.vn/Data/images/room/17.PNG" alt="" id="image-room"></div>
+                    <div class="col-md-5 h4" id="name-room">Phòng đặc biệt</div>
+                    <div class="col-md-5 h4" id="room-rate">Giá: 500.000đ/đêm</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="h3">Thông tin thanh toán</div>
+            </div>
+            <div class="infoBank">
+                <div class="row">
+                    <div class="col-md-10 d-flex flex-column align-items-end">
+                        <input type="hidden" name="" id="bookingDeposit">
+                        <div class="row h5" id="tienCoc">Số tiền cần đặt cọc: 500.000đ</div>
+                        <div class="row">(* Tiền cọc phải được thanh toán trong vòng 1 giờ kể từ khi đặt phòng, nếu không đơn đặt phòng sẽ bị huỷ)</div>
+                    </div>
+                    <div class="col-md-2 d-flex justify-content-end">
+                        <button type="button" class="btn btn-primary" onclick="saveBooking()">Đặt phòng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  footer -->
+    <footer id="contact" class="main--footer"></footer>
+    <!-- end footer -->
+    <!-- Javascript files-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-3.0.0.min.js"></script>
+    <script src="../js/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../js/custom.js"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <!-- main js -->
+    <script src="/js/page/main.js"></script>
+    <!-- booking js -->
+    <script src="/js/page/booking.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,117 @@
+.q--form_book{
+    margin-top: 24px;
+    border: 1px solid #000;
+    padding: 30px 60px;
+    padding-right: 0px;
+    border-radius: 40px;
+}
+.room--items{
+    margin: 32px 0;
+}
+.room-item{
+    margin: 24px 0;
+    background-color: #f0f2f5;
+    border-radius: 8px;
+    padding: 16px;
+    padding-right: 28px;
+}
+.room--item--title{
+    font-size: 20px;
+    font-weight: 600;
+    padding-bottom: 16px;
+    color: #000;
+}
+.room--image img{
+    border-radius: 8px;
+}
+.room--utilities{
+    margin-top: 16px;
+}
+.room--utilities--item{
+    display: flex;
+    gap: 12px;
+}
+.room--utilities--item i{
+    color: #9E9E9E;
+}
+.room--numberPeople--item{
+    margin: 12px 0;
+    font-size: 16px;
+}
+.room--numberPeople{
+    border-radius: 8px 8px 0px 0px;
+    background-color: #fff;
+    padding: 12px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.room--deals{
+    background-color: #fff;
+    padding: 24px ;
+    border-top: 2px solid #e6e6e6;
+    border-bottom: 2px solid #e6e6e6;
+}
+.room--deals--item{
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    font-size: 16px;
+}
+.room--deals--item i{
+    color: #03a84e;
+}
+.room--item--footer{
+    background-color: #fff;
+    border-radius: 0 0 8px 8px;
+    padding: 24px;
+}
+.room--oldPrice{
+    display: flex;
+    text-decoration: line-through;
+    justify-content: right;
+}
+.room--price{
+    display: flex;
+    justify-content: right;
+    font-size: 24px;
+    color: #da6717;
+    font-weight: 700;
+}
+.room--unit{
+    display: flex;
+    justify-content: right;
+}
+.btn--orderRoom{
+    background-color: #da6717;
+    border-color: #da6717;
+    outline: unset;
+    border: unset;
+    margin-bottom: 12px;
+}
+.btn--orderRoom:hover{
+    background-color: #bc5b15;
+    border-color: #bc5b15;
+}
+.btn--orderRoom:active{
+    background-color: #da6717;
+    border-color: #da6717;
+}
+.room--discount{
+    background-color: #e63148;
+    height: min-content;
+    padding: 2px 16px;
+    position: absolute;
+    left: -16px;
+    color: #fff;
+    font-weight: 700;
+}
+.room--discount__triangle{
+    width: 0;
+  height: 0;
+  border-top: 16px solid #9f1917;
+  border-left: 16px solid transparent;
+  position: absolute;
+  left: 0;
+  bottom: -16px;
+}

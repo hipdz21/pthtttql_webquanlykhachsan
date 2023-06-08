@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Chi tiết phòng - Felicity</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- fevicon -->
+    <link rel="shortcut icon" href="../images/Felicity.svg" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+    <!-- main css -->
+    <link rel="stylesheet" href="../css/page/main.css">
+    <!-- room detail css -->
+    <link rel="stylesheet" href="../css/page/roomDetail.css">
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="../images/loading.gif" alt="#" /></div>
+    </div>
+    <!-- end loader -->
+    <!-- header -->
+    <header id="main--header"></header>
+    <!-- body -->
+    <section>
+        <div class="room--images">
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-md-8 h-100">
+                        <img src="https://cdn2.vietnambooking.com/wp-content/uploads/hotel_pro/hotel_352910/8cd906aad90add1f4b4d399af1ce401e.jpg"
+                            alt="" class="room--images--item">
+                    </div>
+                    <div class="col-md-4 h-100">
+                        <div class="row h-50"><img
+                                src="https://cdn2.vietnambooking.com/wp-content/uploads/hotel_pro/hotel_352910/e79f4227ff84831e260f91254ed84524.jpg"
+                                alt="" class="room--images--item"></div>
+                        <div class="row h-50">
+                            <div class="col-md-6 pad__2 h-100"><img
+                                    src="https://cdn2.vietnambooking.com/wp-content/uploads/hotel_pro/hotel_352910/dd873a231fd7208a7fb031c57075b4a2.jpg"
+                                    alt="" class="room--images--item"></div>
+                            <div class="col-md-6 pad__2 h-100"><img
+                                    src="https://cdn2.vietnambooking.com/wp-content/uploads/hotel_pro/hotel_352910/19e2f00056e0bf9ebc99beb501c50b81.jpg"
+                                    alt="" class="room--images--item"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="room--title">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-9  room--title--left">
+                        <div class="h2" id="nameRoom">Phòng Superior</div>
+                    </div>
+                    <div class="col-md-3  room--title--right">
+                        <p>Giá phòng:</p>
+                        <p class="roomOldPrice">1.900.000đ</p>
+                        <p>
+                        <p class="roomPrice">1.500.000đ</p>/đêm</p>
+                        <div id="btn-dat-phong"><button type="button" class="btn btn-warning btn--orderRoom" onclick="datPhong()">Đặt phòng</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="room--utilities">
+            <div class="container">
+                <div class="h3">Tiện nghi</div>
+
+                <div class="row room--utilities--items">
+                    <div class="col-md-3">
+                        <div class="h5">Tiện nghi chung</div>
+                    </div>
+                    <div class="col-md-3" id="tnc-1">
+                        <div class="room--utilities--item">Máy lạnh</div>
+                        <div class="room--utilities--item">Máy lạnh</div>
+                    </div>
+                    <div class="col-md-3" id="tnc-2">
+                        <div class="room--utilities--item">Máy lạnh</div>
+                        <div class="room--utilities--item">Máy lạnh</div>
+                    </div>
+                    <div class="col-md-3" id="tnc-3">
+                        <div class="room--utilities--item">Máy lạnh</div>
+                        <div class="room--utilities--item">Máy lạnh</div>
+                    </div>
+                </div>
+                <div class="row room--utilities--items">
+                    <div class="col-md-3">
+                        <div class="h5">Tiện nghi phòng</div>
+                    </div>
+                    <div class="col-md-3" id="tnr-1">
+                        <div class="room--utilities--item">Máy lạnh</div>
+                        <div class="room--utilities--item">Máy lạnh</div>
+                    </div>
+                    <div class="col-md-3" id="tnr-2">
+                        <div class="room--utilities--item">Máy lạnh</div>
+                        <div class="room--utilities--item">Máy lạnh</div>
+                    </div>
+                    <div class="col-md-3" id="tnr-3">
+                        <div class="room--utilities--item">Máy lạnh</div>
+                        <div class="room--utilities--item">Máy lạnh</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="room--Policy">
+            <div class="container">
+                <div class="h3">Chính sách khách sạn</div>
+                <div class="row room--Policy--items">
+                    <div class="col-md-3">
+                        <div class="h5">Chính sách nhận/trả phòng</div>
+                    </div>
+                    <div class="col-md-9">
+                        <p>Nhận phòng sau 14:00 giờ</p>
+                        <p>Trả phòng trước 12:00 giờ</p>
+                    </div>
+                </div>
+                <div class="row room--Policy--items">
+                    <div class="col-md-3">
+                        <div class="h5">Chính sách huỷ phòng</div>
+                    </div>
+                    <div class="col-md-9">
+                        <p>Miễn phí huỷ phòng trước 7 ngày</p>
+                        <p>Huỷ phòng trước 3 ngày hoàn 50% tiền cọc</p>
+                        <p>Huỷ phòng sau 3 ngày mất 100% tiền cọc</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="room--description">
+            <div class="container">
+                <div class="h3">Giới thiệu về phòng Superior</div>
+                <div class="row" id="description-room">
+                    Khách sạn Corvin Vũng Tàu được xây dựng vào cuối năm 2012. Khách sạn chỉ cách Tượng Chúa Ki-tô 0,6
+                    km, Mũi Nghinh Phong 1,2 km, Vung Tau Lighthouse 1,2 km,...
+
+                    Khách sạn có tổng cộng 56 phòng được xây dựng theo phong cách sang trọng và hiện đại với thiết kế
+                    pha trộn giữa truyền thống châu Âu và châu Á. Các phòng tại khách sạn đều được trang bị bộ vệ sinh
+                    cá nhân, máy sấy quần áo, máy sấy tóc, mini bar. Corvin Hotel luôn được đánh giá là một trong những
+                    khách sạn Vũng Tàu mang đến chuyến nghỉ dưỡng tuyệt vời. Các phòng đều có ban công hoặc cửa sổ lớn
+                    hướng nhìn ra biển và thành phố Vũng Tàu.
+
+                    Khách sạn có hồ bơi ngoài trời rộng rãi và thoáng mãi, sân golf tiện lợi cho du khách sáng có thể
+                    đánh golf thư giãn, hít thở bầu không khí trong lành, thoáng đãng. Nhà hàng chế biến ẩm thực với hải
+                    sản tươi sống hấp dẫn sẽ làm hài lòng thực khách khó tính nhất. Các dịch vụ tại khách sạn Corvin
+                    Vũng Tàu rất tiện nghi và đầy đủ bao gồm wifi công cộng với đường truyền ổn định, bãi đậu xe miễn
+                    phí có nhân viên trông coi, dịch vụ cho thuê xe đạp,…
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--  footer -->
+    <footer id="contact" class="main--footer"></footer>
+    <!-- end footer -->
+    <!-- Javascript files-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-3.0.0.min.js"></script>
+    <script src="../js/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../js/custom.js"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <!-- main js -->
+    <script src="/js/page/main.js"></script>
+    <!-- room detail js -->
+    <script src="/js/page/roomDetail.js"></script>
+</body>
+
+</html>

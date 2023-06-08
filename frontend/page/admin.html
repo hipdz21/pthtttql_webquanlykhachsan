@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- basic -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- mobile metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <!-- site metas -->
+    <title>Felicity</title>
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- style css -->
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- Responsive-->
+    <link rel="stylesheet" href="../css/responsive.css">
+    <!-- fevicon -->
+    <link rel="shortcut icon" href="../images/Felicity.svg" />
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="../css/jquery.mCustomScrollbar.min.css">
+    <!-- Tweaks for older IEs-->
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
+        media="screen">
+    <!-- main css -->
+    <link rel="stylesheet" href="../css/page/main.css">
+    <!-- admin css -->
+    <link rel="stylesheet" href="../css/page/admin.css">
+</head>
+<!-- body -->
+
+<body class="main-layout">
+    <!-- loader  -->
+    <div class="loader_bg">
+        <div class="loader"><img src="../images/loading.gif" alt="#" /></div>
+    </div>
+    <!-- end loader -->
+    <!-- header -->
+    <header id="main--header"></header>
+    <!-- body -->
+    <div class="alert alert-danger alert--error" role="alert" id="alert-error">
+        <i class="fa-solid fa-triangle-exclamation"></i> Lỗi! Vui lòng thử lại
+    </div>
+    <section>
+        <div class="row main--body">
+            <div class="col-md-2 sidebar">
+                <div class="menu--items">
+                    <div class="menu--item menu--item__active" onclick="nextPage(this, 'content--home')">Trang chủ</div>
+                    <div class="menu--item" onclick="nextPage(this, 'content--roomtype')">Loại phòng</div>
+                    <div class="menu--item" onclick="nextPage(this, 'content--room')">Phòng</div>
+                    <div class="menu--item" onclick="nextPage(this, 'content--amenity')">Tiện ích</div>
+                    <div class="menu--item" onclick="nextPage(this, 'content--service')">Dịch vụ</div>
+                    <!-- <div class="menu--item" onclick="nextPage(this, 'content--roomtype')">Khuyến mãi</div> -->
+                    <div class="menu--item" onclick="nextPage(this, 'content--staff')">Nhân viên</div>
+                    <div class="menu--item" onclick="nextPage(this, 'content--client')">Khách hàng</div>
+                    <div class="menu--item" onclick="nextPage(this, 'content--report')">Báo cáo</div>
+                </div>
+            </div>
+            <div class="col-md-10 content">
+                <div class="content--home content--main">
+                    <div class="home--boxs">
+                        <div class="home--box">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="home--box--icon"><i class="fa-regular fa-square-dollar"></i></div>
+                                </div>
+
+                                <div class="col-md-9">
+                                    <div class="home--box--title">Doanh thu tháng</div>
+                                    <div class="row">
+                                        <div class="home--box--number" id="revenueMonth"></div>
+                                        <div class="home--box--unit">vnđ</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="home--box">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="home--box--icon"><i class="fa-sharp fa-regular fa-bags-shopping"></i>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9">
+                                    <div class="home--box--title">Lượt đặt phòng tháng</div>
+                                    <div class="row">
+                                        <div class="home--box--number" id="numberBookingMonth"></div>
+                                        <div class="home--box--unit">Lượt</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="home--box">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <div class="home--box--icon"><i class="fa-regular fa-users"></i></div>
+                                </div>
+
+                                <div class="col-md-9">
+                                    <div class="home--box--title">Khách hàng mới</div>
+                                    <div class="row">
+                                        <div class="home--box--number" id="numberClientMonth"></div>
+                                        <div class="home--box--unit">Khách hàng</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="content--review col-md-12">
+                            <table class="table table-striped table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Khách hàng</th>
+                                        <th scope="col">Điểm</th>
+                                        <th scope="col">Nội dung</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="data-rating">
+                                    <!-- <tr>
+                                        <th scope="row">1</th>
+                                        <td>Nguyễn Văn A</td>
+                                        <td>5</td>
+                                        <td>
+                                            <p>Đội ngũ tài xế của chúng tôi được đào tạo chuyên nghiệp và có kinh
+                                                nghiệm lái xe</p>
+                                        </td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="content--roomtype content--main" style="display: none;">
+                    <div class="content--roomtype--header row">
+                        <div class="col-md-5">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="fa-solid fa-magnifying-glass"></i></span>
+                                <input type="text" class="form-control" placeholder="Nhập vào tên loại phòng"
+                                    aria-label="search" aria-describedby="basic-addon1" id="input-search-room-type">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success w150px" onclick="openAddRoomType()">Thêm
+                            mới</button>
+                    </div>
+                    <div class="content--roomtype--body row">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Loại phòng</th>
+                                    <th scope="col">Giá phòng</th>
+                                    <th scope="col">Số lượng phòng</th>
+                                    <th scope="col">Số người lớn</th>
+                                    <th scope="col">Số trẻ em</th>
+                                    <th scope="col">Số giường</th>
+                                    <th scope="col">Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dataRoomType">
+                                <!-- <tr>
+                                    <th scope="row">1</th>
+                                    <td>Phòng double</td>
+                                    <td>500.000đ</td>
+                                    <td>8</td>
+                                    <td>2</td>
+                                    <td>2</td>
+                                    <td>2 Giường đôi</td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning">Sửa</button>
+                                        <button type="button" class="btn btn-danger">Xoá</button>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="content--room content--main" style="display: none;">
+                    <div class="content--room--header row">
+                        <div class="col-md-5">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="fa-solid fa-magnifying-glass"></i></span>
+                                <input type="text" class="form-control" placeholder="Tìm theo tên phòng"
+                                    aria-label="search" aria-describedby="basic-addon1" id="input-search-room">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success w150px" onclick="openAddRoom()">Thêm mới</button>
+                    </div>
+                    <div class="content--room--body row">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Phòng</th>
+                                    <th scope="col">Loại phòng</th>
+                                    <th scope="col">Số giường</th>
+                                    <th scope="col">Tình trạng</th>
+                                    <th scope="col">Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody id="dataRoom">
+                                <!-- <tr>
+                                    <th scope="row">1</th>
+                                    <td>101</td>
+                                    <td>Phòng Double</td>
+                                    <td>2 giường lớn</td>
+                                    <td>Phòng trống</td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning">Sửa</button>
+                                        <button type="button" class="btn btn-danger">Xoá</button>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="content--amenity content--main" style="display: none;">
+                    <div class="content--amenity--header row">
+                        <div class="col-md-5">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="fa-solid fa-magnifying-glass"></i></span>
+                                <input type="text" class="form-control" placeholder="Tìm theo tên tiện ích"
+                                    aria-label="search" aria-describedby="basic-addon1" id="input-search-amenity">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success w150px" onclick="openAddAmenity()">Thêm
+                            mới</button>
+                    </div>
+                    <div class="content--amenity--body row">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Tiện ích</th>
+                                    <th scope="col">Loại tiện ích</th>
+                                    <th scope="col">Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data-amenity">
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>Wifi miễn phí</td>
+                                    <td>Tiện ích chung</td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning">Sửa</button>
+                                        <button type="button" class="btn btn-danger">Xoá</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="content--service content--main" style="display: none;">
+                    <div class="content--service--header row">
+                        <div class="col-md-5">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="fa-solid fa-magnifying-glass"></i></span>
+                                <input type="text" class="form-control" placeholder="Tìm theo tên dịch vụ"
+                                    aria-label="search" aria-describedby="basic-addon1" id="input-search-service">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success w150px" onclick="openAddService()">Thêm
+                            mới</button>
+                    </div>
+                    <div class="content--service--body row">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Dịch vụ</th>
+                                    <th scope="col">Giá dịch vụ</th>
+                                    <th scope="col">Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data-service">
+                                <!-- <tr>
+                                    <th scope="row">1</th>
+                                    <td>Xe đưa đón sân bay</td>
+                                    <td>500.000đ</td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning" onclick="updateService()">Sửa</button>
+                                        <button type="button" class="btn btn-danger" onclick="deleteService()">Xoá</button>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="content--staff content--main" style="display: none;">
+                    <div class="content--staff--header row">
+                        <div class="col-md-5">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="fa-solid fa-magnifying-glass"></i></span>
+                                <input type="text" class="form-control"
+                                    placeholder="Tìm theo mã nhân viên hoặc tên nhân viên" aria-label="search"
+                                    aria-describedby="basic-addon1" id="input-search-staff">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success w150px" onclick="openAddStaff()">Thêm
+                            mới</button>
+                    </div>
+                    <div class="content--staff--body row">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Mã nv</th>
+                                    <th scope="col">Nhân viên</th>
+                                    <th scope="col">Chức vụ</th>
+                                    <th scope="col">Ngày sinh</th>
+                                    <th scope="col">CCCD</th>
+                                    <th scope="col">Số điện thoại</th>
+                                    <th scope="col">Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data-staff">
+                                <!-- <tr>
+                                    <th scope="row">1</th>
+                                    <td>NV00000001</td>
+                                    <td>Nguyễn Văn A</td>
+                                    <td>Nhân viên lễ tân</td>
+                                    <td>01/01/2000</td>
+                                    <td>012345671230</td>
+                                    <td>0321654987</td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning" onclick="updateStaff()">Sửa</button>
+                                        <button type="button" class="btn btn-danger" onclick="deleteStaff()">Xoá</button>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="content--client content--main" style="display: none;">
+                    <div class="content--client--header row">
+                        <div class="col-md-5">
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1"><i
+                                        class="fa-solid fa-magnifying-glass"></i></span>
+                                <input type="text" class="form-control" placeholder="Tìm theo CCCD hoặc tên khách hàng"
+                                    aria-label="search" aria-describedby="basic-addon1" id="input-search-client">
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-success w150px" onclick="openAddClient()">Thêm mới</button>
+                    </div>
+                    <div class="content--client--body row">
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Khách hàng</th>
+                                    <th scope="col">Tài khoản</th>
+                                    <th scope="col">Ngày sinh</th>
+                                    <th scope="col">Địa chỉ</th>
+                                    <th scope="col">CCCD</th>
+                                    <th scope="col">Số điện thoại</th>
+                                    <th scope="col">Chức năng</th>
+                                </tr>
+                            </thead>
+                            <tbody id="data-client">
+                                <!-- <tr>
+                                    <th scope="row">1</th>
+                                    <td>Nguyễn Văn A</td>
+                                    <td>nguyenvana</td>
+                                    <td>01/01/2000</td>
+                                    <td>Nguyễn Văn Trỗi, Mộ Lao, Hà Đông, Hà Nội</td>
+                                    <td>012345671230</td>
+                                    <td>0321654987</td>
+                                    <td>
+                                        <button type="button" class="btn btn-warning" onclick="updateClient()">Sửa</button>
+                                        <button type="button" class="btn btn-danger" onclick="deleteClient()">Xoá</button>
+                                    </td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="content--report content--main" style="display: none;">
+                    <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+                        <input type="radio" class="btn-check" name="btnradioBaoCao" id="btnradio1" autocomplete="off"
+                            checked style="display: none;" value="report--doanhthu" onclick="nextTab(this)">
+                        <label class="btn btn-outline-primary" for="btnradio1">Doanh thu</label>
+
+                        <input type="radio" class="btn-check" name="btnradioBaoCao" id="btnradio2" autocomplete="off"
+                            style="display: none;" value="report--phong" onclick="nextTab(this)">
+                        <label class="btn btn-outline-primary" for="btnradio2">Phòng</label>
+
+                        <input type="radio" class="btn-check" name="btnradioBaoCao" id="btnradio3" autocomplete="off"
+                            style="display: none;" value="report--dichvu" onclick="nextTab(this)">
+                        <label class="btn btn-outline-primary" for="btnradio3">Dịch vụ</label>
+
+                        <input type="radio" class="btn-check" name="btnradioBaoCao" id="btnradio4" autocomplete="off"
+                            style="display: none;" value="report--khachhang" onclick="nextTab(this)">
+                        <label class="btn btn-outline-primary" for="btnradio4">Khách hàng</label>
+                    </div>
+                    <div class="report--item" id="report--doanhthu">
+                        <div class="col-md-12 row">
+                            <div class="report--item--chart col-md-6">
+                                <canvas id="bieuDoDoanhThuNgayTrongThang"></canvas>
+                            </div>
+                            <div class="report--item--chart col-md-5">
+                                <canvas id="bieuDoTyLeDoanhThuThang"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row">
+                            <div class="report--item--chart col-md-6">
+                                <canvas id="bieuDoDoanhBookingThuThangTrongNam"></canvas>
+                            </div>
+                            <div class="report--item--chart col-md-5">
+                                <canvas id="bieuDoDoanhThuUseServiceThangTrongNam"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row">
+                            <div class="report--item--chart col-md-6">
+                                <canvas id="bieuDoDoanhThuNam"></canvas>
+                            </div>
+                            <div class="report--item--chart col-md-5">
+                                <canvas id="bieuDoDoanhThuThangTrongNam"></canvas>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="report--item" id="report--phong" style="display: none;">
+                        <div class="col-md-12 row">
+                            <div class="report--item--chart col-md-6">
+                                <canvas id="bieuDoSoLuongLoaiPhongThueTheoThang"></canvas>
+                            </div>
+                            <div class="report--item--chart col-md-5">
+                                <canvas id="bieuDoDoanhThuLoaiPhongTheoThang"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row">
+                            <div class="report--item--chart col-md-5">
+                                <canvas id="bieuDoTyLeSoLuongLoaiPhongThueTheoThang"></canvas>
+                            </div>
+                            <div class="report--item--chart col-md-5">
+                                <canvas id="bieuDoTyLeDoanhThuLoaiPhongTheoThang"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row">
+                            <div class="report--item--chart col-md-11">
+                                <canvas id="bieuDoTyLeSoLuongLoaiPhong"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="report--item" id="report--dichvu" style="display: none;">
+                        <div class="col-md-12 row">
+                            <div class="report--item--chart col-md-6">
+                                <canvas id="bieuDoSoLuongDichVuTheoThang"></canvas>
+                            </div>
+                            <div class="report--item--chart col-md-5">
+                                <canvas id="bieuDoTyLeSoLuongDichVuThang"></canvas>
+                            </div>
+                        </div>
+                        <div class="col-md-12 row">
+                            <div class="report--item--chart col-md-6">
+                                <canvas id="bieuDoDoanhThuDichVuTheoThang"></canvas>
+                            </div>
+                            <div class="report--item--chart col-md-5">
+                                <canvas id="bieuDoTyLeDoanhThuDichVuThang"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="report--item" id="report--khachhang" style="display: none;">
+                        <div class="report--item--chart col-md-12">
+                            <div class="report--item--title h6"></div>
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Họ và Tên</th>
+                                        <th scope="col">Số CCCD</th>
+                                        <th scope="col">Doanh thu</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="data-top-10-client">
+                                    <!-- <tr>
+                                        <th scope="row">1</th>
+                                        <td>Mark</td>
+                                        <td>123456789</td>
+                                        <td>@123.123đ</td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-md-12 row" style="display: flex;padding: 0;justify-content: space-between;">
+                            <div class="report--item--chart col-md-6">
+                                <canvas id="bieuDoTyLeKhachHangTheoDoTuoi"></canvas>
+                            </div>
+                            <div class="report--item--chart col-md-5">
+                                <canvas id="bieuDoTyLeDoanhThuKhachHangTheoDoTuoi"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="popup" id="popup-RoomType" style="display: none;">
+        <div class="popup--board">
+            <form action="" id="form-add-roomtype">
+                <div class="popup--header">Thông tin loại phòng</div>
+                <div class="popup--content">
+                    <input type="hidden" name="" id="idRoomType">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="nameRoomType" class="form-label">Loại phòng</label>
+                            <input type="text" class="form-control" id="nameRoomType" required>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="form-group">
+                            <label for="roomTypeImage">Ảnh</label>
+                            <input type="file" class="form-control-file" id="roomTypeImage" name="imagesRoomType[]"
+                                multiple accept="image/*">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="acreage" class="form-label">Diện tích</label>
+                                <input type="text" class="form-control" id="acreage" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="bed" class="form-label">Thông tin giường</label>
+                                <input type="text" class="form-control" id="bed" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="numberAdult" class="form-label">Người lớn</label>
+                                <input type="text" class="form-control" id="numberAdult" required>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="numberChild" class="form-label">Trẻ em</label>
+                                <input type="text" class="form-control" id="numberChild" value="0">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="roomRate" class="form-label">Giá phòng</label>
+                                <input type="text" class="form-control" id="roomRate" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="descriptionRoomType" class="form-label">Mô tả</label>
+                            <textarea class="form-control" id="descriptionRoomType" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup--footer">
+                    <button type="button" class="btn btn-secondary" onclick="closePopup('popup-RoomType')">Huỷ</button>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="popup" id="popup-Room" style="display: none;">
+        <div class="popup--board">
+            <form action="" id="form-add-room">
+                <div class="popup--header">Thông tin phòng</div>
+                <div class="popup--content">
+                    <input type="hidden" name="" id="idRoom">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="nameRoom" class="form-label">Phòng</label>
+                            <input type="text" class="form-control" id="nameRoom" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="mb-3">
+                                <label for="bedRoom" class="form-label">Thông tin giường</label>
+                                <input type="text" class="form-control" id="bedRoom" required>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="roomType">Loại phòng</label>
+                                    <select class="form-control" id="roomType">
+                                        <!-- <option value="1">Option 1</option>
+                                    <option>Option 2</option>
+                                    <option>Option 3</option> -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="roomStatus">Trạng thái phòng</label>
+                                    <select class="form-control" id="roomStatus">
+                                        <option value="Phòng trống">Phòng trống</option>
+                                        <option value="Phòng bận">Phòng bận</option>
+                                        <option value="Phòng hỏng">Phòng hỏng</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="descriptionRoom" class="form-label">Mô tả</label>
+                            <textarea class="form-control" id="descriptionRoom" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup--footer">
+                    <button type="button" class="btn btn-secondary" onclick="closePopup('popup-Room')">Huỷ</button>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="popup" id="popup-Amenity" style="display: none;">
+        <div class="popup--board">
+            <form action="" id="form-add-amenity">
+                <div class="popup--header">Thông tin tiện ích</div>
+                <div class="popup--content">
+                    <input type="hidden" name="" id="idAmenity">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="nameAmenity" class="form-label">Tiện ích</label>
+                            <input type="text" class="form-control" id="nameAmenity" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="iconAmenity" class="form-label">Icon</label>
+                                <input type="text" class="form-control" id="iconAmenity">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="typeAmenity" class="form-label">Loại tiện ích</label>
+                            <select class="custom-select" id="amenityType">
+                                <option value="Tiện ích chung">Tiện ích chung</option>
+                                <option value="Tiện ích riêng">Tiện ích riêng</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label for="roomAmenity" class="form-label">Tiện ích cho các phòng</label>
+                            <div class="row">
+                                <div class="col-md-6" id="room-type-checkboxAmenity-left">
+                                    <!-- <div class="form-check">
+                                    <input class="form-check-input room-type-checkbox" type="checkbox" value="">
+                                    <label class="form-check-label">
+                                        Default checkbox
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Default checkbox
+                                    </label>
+                                </div> -->
+                                </div>
+                                <div class="col-md-6" id="room-type-checkboxAmenity-right">
+                                    <!-- <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Default checkbox
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                                    <label class="form-check-label" for="defaultCheck1">
+                                        Default checkbox
+                                    </label>
+                                </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup--footer">
+                    <button type="button" class="btn btn-secondary" onclick="closePopup('popup-Amenity')">Huỷ</button>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="popup" id="popup-Service" style="display: none;">
+        <div class="popup--board">
+            <form action="" id="form-add-service">
+                <div class="popup--header">Thông tin dịch vụ</div>
+                <div class="popup--content">
+                    <input type="hidden" name="" id="idService">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="nameService" class="form-label">Dịch vụ</label>
+                            <input type="text" class="form-control" id="nameService" required>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="serviceImage" class="form-label">Ảnh dịch vụ</label>
+                            <input class="form-control" type="file" id="serviceImage" accept="image/*">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="servicePrice" class="form-label">Giá dịch vụ</label>
+                            <input type="text" class="form-control" id="servicePrice" required>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="descriptionService" class="form-label">Mô tả</label>
+                            <textarea class="form-control" id="descriptionService" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup--footer">
+                    <button type="button" class="btn btn-secondary" onclick="closePopup('popup-Service')">Huỷ</button>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="popup" id="popup-Client" style="display: none;">
+        <div class="popup--board">
+            <form action="" id="form-add-client">
+                <div class="popup--header">Thông tin khách hàng</div>
+                <div class="popup--content">
+                    <input type="hidden" name="" id="idClient">
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="nameClient" class="form-label">Họ tên khách hàng</label>
+                            <input type="text" class="form-control" id="nameClient" required>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="gender" class="form-label">Giới tính</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="genderClient"
+                                                id="genderClient1" checked value="Nam">
+                                            <label class="form-check-label" for="genderClient1">
+                                                Nam
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="genderClient"
+                                                id="genderClient2" value="Nữ">
+                                            <label class="form-check-label" for="genderClient2">
+                                                Nữ
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="mb-3">
+                                <label for="dobClient" class="form-label">Ngày sinh</label>
+                                <input type="date" class="form-control" id="dobClient" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="phoneNumberClient" class="form-label">Số điện thoại</label>
+                                <input type="text" class="form-control" id="phoneNumberClient" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="emailClient" class="form-label">Email</label>
+                                <input type="text" class="form-control" id="emailClient">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="cccdClient" class="form-label">CCCD</label>
+                                <input type="text" class="form-control" id="cccdClient">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="passportClient" class="form-label">Hộ chiếu</label>
+                                <input type="text" class="form-control" id="passportClient">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="addressClient" class="form-label">Địa chỉ</label>
+                            <textarea class="form-control" id="addressClient" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup--footer">
+                    <button type="button" class="btn btn-secondary" onclick="closePopup('popup-Client')">Huỷ</button>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="popup" id="popup-Staff" style="display: none;">
+        <div class="popup--board">
+            <form action="" id="form-add-staff">
+                <div class="popup--header">Thông tin nhân viên</div>
+                <div class="popup--content">
+                    <input type="hidden" name="" id="idStaff">
+                    <input type="hidden" name="" id="idUser">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="staffCode" class="form-label">Mã nhân viên</label>
+                                <input type="text" class="form-control" id="staffCode" readonly>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="nameStaff" class="form-label">Họ tên nhân viên</label>
+                                <input type="text" class="form-control" id="nameStaff" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="mb-3">
+                                <label for="gender" class="form-label">Giới tính</label>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="genderStaff"
+                                                id="genderStaff1" value="Nam" checked>
+                                            <label class="form-check-label" for="genderStaff1">
+                                                Nam
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="genderStaff"
+                                                id="genderStaff2" value="Nữ">
+                                            <label class="form-check-label" for="genderStaff2">
+                                                Nữ
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="mb-3">
+                                <label for="dobStaff" class="form-label">Ngày sinh</label>
+                                <input type="date" class="form-control" id="dobStaff" required>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="phoneNumberStaff" class="form-label">Số điện thoại</label>
+                                <input type="text" class="form-control" id="phoneNumberStaff" required>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="emailStaff" class="form-label">Email</label>
+                                <input type="text" class="form-control" id="emailStaff">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="cccdStaff" class="form-label">CCCD</label>
+                                <input type="text" class="form-control" id="cccdStaff">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="passportStaff" class="form-label">Hộ chiếu</label>
+                                <input type="text" class="form-control" id="passportStaff">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-row">
+                                <div class="form-group col-md-12">
+                                    <label for="position">Chức vụ</label>
+                                    <select class="form-control" id="position">
+                                        <!-- <option value="">Quản lý</option>
+                                    <option>Lễ tân</option>
+                                    <option>Nhân viên dịch vụ</option>
+                                    <option>Nhân viên buồng phòng</option> -->
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="salary" class="form-label">Lương</label>
+                                <input type="text" class="form-control" id="salary">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="mb-3">
+                            <label for="addressStaff" class="form-label">Địa chỉ</label>
+                            <textarea class="form-control" id="addressStaff" rows="3"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="popup--footer">
+                    <button type="button" class="btn btn-secondary" onclick="closePopup('popup-Staff')">Huỷ</button>
+                    <button type="submit" class="btn btn-primary">Lưu</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--  footer -->
+    <footer id="contact" class="main--footer"></footer>
+    <!-- end footer -->
+    <!-- Javascript files-->
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/popper.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/jquery-3.0.0.min.js"></script>
+    <script src="../js/plugin.js"></script>
+    <!-- sidebar -->
+    <script src="../js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="../js/custom.js"></script>
+    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+    <!-- chart js -->
+    <script src="/lib/ChartJs/Chart.min.js"></script>
+    <!-- main js -->
+    <script src="/js/page/main.js"></script>
+    <!-- admin js -->
+    <script src="/js/page/admin.js"></script>
+    <!-- bao cao js -->
+    <script src="/js/page/baocao.js"></script>
+</body>
+
+</html>
